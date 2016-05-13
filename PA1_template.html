@@ -186,28 +186,8 @@ compare[1,2] &lt;- mean(dailyTotals$total, na.rm = TRUE)
 compare[1,3] &lt;- median(dailyTotals$total, na.rm = TRUE)
 compare[2,2] &lt;- mean(dailyTotals2$total, na.rm = TRUE)
 compare[2,3] &lt;- median(dailyTotals2$total, na.rm = TRUE)
-kable(compare)</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Data</th>
-<th align="right">Mean</th>
-<th align="right">Median</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Original</td>
-<td align="right">9354.23</td>
-<td align="right">10395.00</td>
-</tr>
-<tr class="even">
-<td align="left">With Imputed NAs</td>
-<td align="right">10766.19</td>
-<td align="right">10766.19</td>
-</tr>
-</tbody>
-</table>
+kable(compare, format = &quot;markdown&quot;)</code></pre>
+<p>|Data | Mean| Median| |:—————-|——–:|——–:| |Original | 9354.23| 10395.00| |With Imputed NAs | 10766.19| 10766.19|</p>
 <p>The mean changed by quite a bit (1411.96 steps). The median only changed by 371.19 steps. This isn’t surprising as we already know that median is a more robust measure of central tendency and is less affected by extreme values (like forgetting to collect data on 8 days!).</p>
 </div>
 <div id="are-there-differences-in-activity-patterns-between-weekdays-and-weekends" class="section level2">

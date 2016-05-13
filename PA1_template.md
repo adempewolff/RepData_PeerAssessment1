@@ -135,15 +135,15 @@ compare[1,2] <- mean(dailyTotals$total, na.rm = TRUE)
 compare[1,3] <- median(dailyTotals$total, na.rm = TRUE)
 compare[2,2] <- mean(dailyTotals2$total, na.rm = TRUE)
 compare[2,3] <- median(dailyTotals2$total, na.rm = TRUE)
-kable(compare)
+kable(compare, format = "markdown")
 ```
 
 
 
-Data                    Mean     Median
------------------  ---------  ---------
-Original             9354.23   10395.00
-With Imputed NAs    10766.19   10766.19
+|Data             |     Mean|   Median|
+|:----------------|--------:|--------:|
+|Original         |  9354.23| 10395.00|
+|With Imputed NAs | 10766.19| 10766.19|
   
 The mean changed by quite a bit (1411.96 steps). The median only changed by 371.19 steps.  This isn't surprising as we already know that median is a more robust measure of central tendency and is less affected by extreme values (like forgetting to collect data on 8 days!).
   
