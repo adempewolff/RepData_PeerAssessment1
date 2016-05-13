@@ -36,6 +36,7 @@ rug(dailyTotals$total)
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)
+  
 The data looks left skewed with some outliers above 20,000 steps.  Additionally, there are a large number of days in the first bin.  It's possible that this could be due to days with missing data--we will come back this later.  Now let's calculate the mean and median.
 
 ```r
@@ -73,6 +74,7 @@ qplot(interval, steps, data = avg_interval, geom = "line", group = 1,
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-7-1.png)
+  
 It looks like there is, on average, a peak in activity between 8 and 9 o'clock.  Let's see which interval had the highest number of steps on average.
 
 ```r
@@ -103,6 +105,7 @@ qplot(as.Date(date), na, data = na_date, main = "Missing values by date",
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-9-2.png)
+  
 Aha! It appears that the user simply forgot to wear their activity tracker on 8 days.  Given this knowledge, it makes sense to use the interval averages we calculated in the last section to replace the missing values.  To keep the code cleaner, I'll first create a special function `intAvg()`, which will return the average value for any given interval.  Then I'll call this function for each row with a missing value in `$step`, inputing the value of `$interval`, and assigning the result to `$step`.
 
 
@@ -123,6 +126,7 @@ rug(dailyTotals$total)
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-11-1.png)
+  
 Imputing the missing data caused the strange peak in the first bin to disapear.  Now it's starting to look a lot like a left-skewed normal distribution with two outliers above 20,000.  I would also hypothosize that the step tracking app being used is encouraging the user to walk at least 10,000 steps per day given how the totals are clustering.
   
 Let's see if the mean and median changed as well.
@@ -168,6 +172,7 @@ qplot(interval, steps, data = avg_interval2, geom = "line", group = 1,
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-14-1.png)
+  
 It looks like the user is sleeping in a little longer of the weekend and not running around so much at 8:35.  The way we imputed missing values might be dampening the differences between weekdays and weekends.  If we wanted we could go back and replace the NAs appropriately with the weekday or weekend values.
 
 [1]: https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip "activity data URL"
